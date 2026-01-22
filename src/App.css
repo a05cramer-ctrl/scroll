@@ -1,0 +1,796 @@
+.app {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Heavenly Sky Background */
+.sky {
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 120% 80% at 50% 0%, #fff8e7 0%, transparent 50%),
+    linear-gradient(180deg, 
+      #1e4a6d 0%,
+      #3d7ea6 15%,
+      #6aadcf 30%,
+      #9fcce3 45%,
+      #c9e4f2 55%,
+      #e8d9b8 70%,
+      #dcc088 85%,
+      #c9a655 100%
+    );
+  z-index: 0;
+}
+
+/* God Rays */
+.god-rays {
+  position: fixed;
+  top: -30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200vw;
+  height: 100vh;
+  background: conic-gradient(
+    from 180deg at 50% 0%,
+    transparent 0deg,
+    rgba(255, 248, 220, 0.25) 5deg,
+    transparent 12deg,
+    rgba(255, 240, 200, 0.2) 20deg,
+    transparent 28deg,
+    rgba(255, 248, 220, 0.3) 35deg,
+    transparent 45deg,
+    rgba(255, 240, 200, 0.15) 55deg,
+    transparent 65deg,
+    rgba(255, 248, 220, 0.25) 75deg,
+    transparent 85deg,
+    rgba(255, 240, 200, 0.2) 95deg,
+    transparent 105deg,
+    rgba(255, 248, 220, 0.25) 115deg,
+    transparent 125deg,
+    rgba(255, 240, 200, 0.15) 140deg,
+    transparent 150deg,
+    rgba(255, 248, 220, 0.2) 165deg,
+    transparent 180deg
+  );
+  pointer-events: none;
+  z-index: 1;
+  animation: rays-glow 6s ease-in-out infinite;
+}
+
+@keyframes rays-glow {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+/* Clouds */
+.clouds {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.cloud {
+  position: absolute;
+  background: radial-gradient(ellipse at center,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 252, 240, 0.7) 30%,
+    rgba(255, 248, 220, 0.4) 60%,
+    transparent 80%
+  );
+  border-radius: 50%;
+  filter: blur(8px);
+}
+
+.cloud-1 { width: 600px; height: 200px; top: 2%; left: -5%; animation: drift 100s linear infinite; }
+.cloud-2 { width: 500px; height: 180px; top: 8%; right: -10%; animation: drift 80s linear infinite reverse; }
+.cloud-3 { width: 700px; height: 220px; top: 18%; left: 10%; animation: drift 120s linear infinite; opacity: 0.7; }
+.cloud-4 { width: 400px; height: 150px; top: 5%; left: 40%; animation: drift 90s linear infinite reverse; }
+.cloud-5 { width: 550px; height: 190px; top: 25%; right: 5%; animation: drift 110s linear infinite; opacity: 0.6; }
+.cloud-6 { width: 800px; height: 250px; bottom: 15%; left: -10%; animation: drift 130s linear infinite; opacity: 0.8; }
+.cloud-7 { width: 600px; height: 200px; bottom: 25%; right: -5%; animation: drift 95s linear infinite reverse; opacity: 0.7; }
+
+@keyframes drift {
+  0% { transform: translateX(-50px); }
+  100% { transform: translateX(50px); }
+}
+
+/* Golden Particles */
+.particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, #ffd700 0%, transparent 70%);
+  border-radius: 50%;
+  animation: sparkle 4s ease-in-out infinite;
+}
+
+.particle:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+.particle:nth-child(2) { top: 30%; left: 85%; animation-delay: 0.5s; }
+.particle:nth-child(3) { top: 50%; left: 15%; animation-delay: 1s; }
+.particle:nth-child(4) { top: 40%; left: 90%; animation-delay: 1.5s; }
+.particle:nth-child(5) { top: 60%; left: 8%; animation-delay: 2s; }
+.particle:nth-child(6) { top: 25%; left: 92%; animation-delay: 2.5s; }
+.particle:nth-child(7) { top: 70%; left: 88%; animation-delay: 3s; }
+.particle:nth-child(8) { top: 15%; left: 20%; animation-delay: 3.5s; }
+.particle:nth-child(9) { top: 80%; left: 12%; animation-delay: 0.8s; }
+.particle:nth-child(10) { top: 45%; left: 5%; animation-delay: 1.8s; }
+.particle:nth-child(11) { top: 35%; left: 95%; animation-delay: 2.8s; }
+.particle:nth-child(12) { top: 65%; left: 93%; animation-delay: 3.8s; }
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0.5) translateY(0); }
+  50% { opacity: 1; transform: scale(1.5) translateY(-10px); }
+}
+
+/* Floating Symbols */
+.floating-symbols {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.symbol {
+  position: absolute;
+  font-size: 1.5rem;
+  opacity: 0.3;
+  animation: float-symbol 20s ease-in-out infinite;
+}
+
+.symbol:nth-child(1) { top: 15%; left: 5%; animation-delay: 0s; animation-duration: 18s; }
+.symbol:nth-child(2) { top: 25%; right: 8%; animation-delay: 3s; animation-duration: 22s; }
+.symbol:nth-child(3) { top: 45%; left: 3%; animation-delay: 6s; animation-duration: 20s; }
+.symbol:nth-child(4) { top: 60%; right: 5%; animation-delay: 9s; animation-duration: 24s; }
+.symbol:nth-child(5) { top: 75%; left: 7%; animation-delay: 12s; animation-duration: 19s; }
+.symbol:nth-child(6) { top: 85%; right: 10%; animation-delay: 15s; animation-duration: 21s; }
+
+@keyframes float-symbol {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.2; }
+  25% { transform: translateY(-30px) rotate(10deg); opacity: 0.4; }
+  50% { transform: translateY(-15px) rotate(-5deg); opacity: 0.3; }
+  75% { transform: translateY(-40px) rotate(5deg); opacity: 0.35; }
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.4s ease;
+  background: linear-gradient(180deg, rgba(20, 40, 60, 0.9) 0%, rgba(20, 40, 60, 0.6) 70%, transparent 100%);
+}
+
+.navbar-scrolled {
+  background: rgba(20, 40, 60, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 0.75rem 3rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.nav-logo {
+  font-family: 'Cinzel', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #f0d060;
+  text-decoration: none;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.nav-logo:hover {
+  color: #ffe08a;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links a {
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+  position: relative;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.nav-links a:not(.nav-btn):hover {
+  color: #f0d060;
+}
+
+.nav-links a:not(.nav-btn)::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #f0d060;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:not(.nav-btn):hover::after {
+  width: 100%;
+}
+
+.nav-btn {
+  background: linear-gradient(135deg, #f0d060 0%, #c9a030 100%);
+  color: #1a1a1a !important;
+  padding: 0.6rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.nav-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(200, 160, 50, 0.5);
+}
+
+/* Content */
+.content {
+  position: relative;
+  z-index: 10;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem 4rem;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.hero-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, transparent 60%);
+  filter: blur(60px);
+  pointer-events: none;
+  animation: glow-pulse 4s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+.hero-image {
+  max-width: min(85vw, 550px);
+  height: auto;
+  filter: drop-shadow(0 0 80px rgba(255, 215, 0, 0.4))
+          drop-shadow(0 30px 60px rgba(0, 0, 0, 0.3));
+  animation: divine-float 5s ease-in-out infinite;
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes divine-float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.02); }
+}
+
+/* Ticker */
+.ticker {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  color: #1a1a1a;
+  text-shadow: 0 2px 10px rgba(255, 215, 0, 0.5);
+  letter-spacing: 0.3em;
+  min-height: 2em;
+}
+
+/* Typewriter Cursor */
+.cursor {
+  animation: blink 0.8s infinite;
+  color: #c9a030;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, #f0d060 0%, #c9a030 50%, #a07c20 100%);
+  color: #1a1a1a;
+  box-shadow: 
+    0 4px 20px rgba(200, 160, 50, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn-gold:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 8px 40px rgba(200, 160, 50, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.btn-holy {
+  background: rgba(255, 255, 255, 0.2);
+  color: #3d3020;
+  border: 2px solid rgba(200, 160, 50, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.btn-holy:hover {
+  background: rgba(255, 255, 255, 0.4);
+  border-color: rgba(200, 160, 50, 0.8);
+}
+
+.btn-large {
+  font-size: 1.1rem;
+  padding: 1.2rem 3rem;
+}
+
+/* Contract Address */
+.ca-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(200, 160, 50, 0.3);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  margin-top: 0.5rem;
+}
+
+.ca-container:hover {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: rgba(200, 160, 50, 0.6);
+}
+
+.ca-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #f0d060;
+  background: rgba(200, 160, 50, 0.2);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  letter-spacing: 0.1em;
+}
+
+.ca-address {
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ca-copy {
+  font-size: 0.75rem;
+  color: #c9a030;
+  white-space: nowrap;
+}
+
+/* Scroll indicator */
+.scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: #5c4a30;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  animation: bob 2s ease-in-out infinite;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.7; }
+  50% { transform: translateX(-50%) translateY(10px); opacity: 1; }
+}
+
+.scroll-hint svg {
+  width: 20px;
+  height: 20px;
+  stroke: #5c4a30;
+}
+
+/* Prophecy Intro */
+.prophecy-intro {
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.prophecy-box {
+  max-width: 800px;
+  padding: 3rem;
+  background: rgba(255, 248, 230, 0.3);
+  border: 1px solid rgba(200, 160, 80, 0.3);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.prophecy-large {
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  font-style: italic;
+  color: #3d3020;
+  line-height: 1.8;
+  text-align: center;
+  min-height: 4em;
+}
+
+/* Banner Section */
+.banner {
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.banner-image {
+  max-width: min(95vw, 1100px);
+  height: auto;
+  filter: drop-shadow(0 0 60px rgba(255, 215, 0, 0.3))
+          drop-shadow(0 20px 40px rgba(0, 0, 0, 0.25));
+}
+
+/* Section Title */
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: #3d3020;
+  text-align: center;
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.title-ornament {
+  color: #c9a030;
+  font-size: 0.8em;
+}
+
+/* Holy Scriptures */
+.scriptures {
+  padding: 6rem 2rem;
+  background: linear-gradient(180deg, transparent, rgba(220, 190, 130, 0.15), transparent);
+}
+
+.scriptures-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.scripture-card {
+  background: rgba(255, 250, 235, 0.5);
+  border: 1px solid rgba(200, 160, 80, 0.3);
+  border-radius: 12px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.scripture-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #c9a030, transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.scripture-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.scripture-card:hover::before {
+  opacity: 1;
+}
+
+.scripture-verse {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  color: #c9a030;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.scripture-text {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #3d3020;
+  line-height: 1.7;
+  min-height: 5em;
+}
+
+.scripture-ref {
+  display: block;
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: #8b7040;
+  letter-spacing: 0.05em;
+}
+
+/* Commandments */
+.commandments {
+  padding: 6rem 2rem;
+}
+
+.commandments-scroll {
+  max-width: 700px;
+  margin: 0 auto;
+  background: 
+    linear-gradient(135deg, #f5e6c8 0%, #e8d4a8 50%, #dcc088 100%);
+  border-radius: 12px;
+  padding: 3rem;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.2),
+    inset 0 2px 0 rgba(255, 255, 255, 0.3);
+  position: relative;
+}
+
+.commandments-scroll::before,
+.commandments-scroll::after {
+  content: '';
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  height: 20px;
+  background: linear-gradient(90deg, #a07c20, #c9a030, #f0d060, #c9a030, #a07c20);
+  border-radius: 10px;
+}
+
+.commandments-scroll::before {
+  top: -10px;
+}
+
+.commandments-scroll::after {
+  bottom: -10px;
+}
+
+.commandments-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.commandment {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(150, 120, 60, 0.2);
+}
+
+.commandment:last-child {
+  border-bottom: none;
+}
+
+.commandment-num {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #8b6914;
+  min-width: 2rem;
+}
+
+.commandment-text {
+  font-size: 1.1rem;
+  color: #3d3020;
+  line-height: 1.6;
+  min-height: 1.5em;
+}
+
+/* Closing Prophecy */
+.prophecy {
+  text-align: center;
+  padding: 6rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.prophecy-text {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-style: italic;
+  color: #3d3020;
+  line-height: 1.8;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+  min-height: 4em;
+}
+
+.prophecy-verse {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  color: #8b7040;
+  letter-spacing: 0.1em;
+}
+
+/* Final CTA */
+.final-cta {
+  padding: 6rem 2rem;
+  text-align: center;
+  background: linear-gradient(180deg, transparent, rgba(200, 160, 80, 0.1));
+}
+
+.cta-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #3d3020;
+  margin-bottom: 1rem;
+}
+
+.cta-subtitle {
+  font-size: 1.2rem;
+  color: #5c4a30;
+  margin-bottom: 2.5rem;
+  min-height: 1.5em;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* Footer */
+.footer {
+  padding: 4rem 2rem 2rem;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(180, 150, 80, 0.1), rgba(180, 150, 80, 0.2));
+  border-top: 1px solid rgba(200, 160, 80, 0.3);
+}
+
+.footer-logo {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #8b6914;
+  margin-bottom: 1.5rem;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.footer-links a {
+  color: #5c4a30;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #c9a030;
+}
+
+.disclaimer {
+  font-size: 0.85rem;
+  color: #5c4a30;
+  opacity: 0.7;
+  margin-bottom: 0.5rem;
+}
+
+.copyright {
+  font-size: 0.75rem;
+  color: #5c4a30;
+  opacity: 0.5;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 1.5rem;
+  }
+  
+  .navbar-scrolled {
+    padding: 0.75rem 1.5rem;
+  }
+  
+  .nav-links {
+    gap: 1rem;
+  }
+  
+  .nav-links a:not(.nav-btn) {
+    display: none;
+  }
+  
+  .hero {
+    padding: 5rem 1.5rem 3rem;
+  }
+  
+  .buttons {
+    flex-direction: column;
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .scriptures-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .commandments-scroll {
+    padding: 2rem 1.5rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cloud { opacity: 0.5; }
+  .floating-symbols { display: none; }
+}
