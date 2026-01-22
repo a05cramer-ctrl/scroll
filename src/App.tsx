@@ -54,7 +54,7 @@ function Typewriter({ text, speed = 40, delay = 0, className = '' }: {
   )
 }
 
-const CONTRACT_ADDRESS = '0x0000000000000000000000000000000000000000'
+const CONTRACT_ADDRESS = '8tcBN6AQmQdFbyD6wif7VgNuQbSS1xcFzQhpXDtopump'
 
 function App() {
   const [scrolled, setScrolled] = useState(false)
@@ -137,7 +137,7 @@ function App() {
         <div className="nav-links">
           <a href="#scriptures">Scriptures</a>
           <a href="#commandments">Commandments</a>
-          <a href="https://x.com" target="_blank" rel="noopener noreferrer">Twitter</a>
+          <a href="https://x.com/HolyScrollz" target="_blank" rel="noopener noreferrer">Twitter</a>
           <a href="#" className="nav-btn">Buy</a>
         </div>
       </nav>
@@ -155,7 +155,7 @@ function App() {
           
           <div className="buttons">
             <a href="#" className="btn btn-gold">Buy $SCROLL</a>
-            <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="btn btn-holy">Twitter</a>
+            <a href="https://x.com/HolyScrollz" target="_blank" rel="noopener noreferrer" className="btn btn-holy">Twitter</a>
           </div>
 
           <div className="ca-container" onClick={copyCA}>
@@ -253,7 +253,6 @@ function App() {
           </p>
           <div className="cta-buttons">
             <a href="#" className="btn btn-gold btn-large">Buy $SCROLL</a>
-            <a href="#" className="btn btn-holy btn-large">View Chart</a>
           </div>
         </section>
 
@@ -261,7 +260,7 @@ function App() {
         <footer className="footer">
           <div className="footer-logo">📜 HOLY SCROLL</div>
           <div className="footer-links">
-            <a href="https://x.com" target="_blank" rel="noopener noreferrer">Twitter</a>
+            <a href="https://x.com/HolyScrollz" target="_blank" rel="noopener noreferrer">Twitter</a>
             <a href="#" target="_blank" rel="noopener noreferrer">Dexscreener</a>
           </div>
         </footer>
