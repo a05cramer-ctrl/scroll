@@ -54,7 +54,7 @@ function Typewriter({ text, speed = 40, delay = 0, className = '' }: {
   )
 }
 
-const CONTRACT_ADDRESS = '233UZXMxmvMPP1kjvTdsKdrprJ6rAgvbwDomjntcpump'
+const CONTRACT_ADDRESS = 'A8T2t7M7bL7McJgfKPgpRwW4pDcja3QLoSA2ayWspump'
 
 function App() {
   const [scrolled, setScrolled] = useState(false)
